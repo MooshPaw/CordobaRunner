@@ -47,7 +47,10 @@ public class CameraController : MonoBehaviour
         {
             target = FindObjectOfType<PlayerController>().transform;
 
-            offset = transform.position;
+            // Guardamos el offset RELATIVO a la posición del jugador, no la posición
+            // absoluta de la cámara. Si no, la cámara "salta" a un punto incorrecto
+            // apenas arranca la escena cuando el jugador no empieza en (0,0,0).
+            offset = transform.position - target.position;
         }
     }
 

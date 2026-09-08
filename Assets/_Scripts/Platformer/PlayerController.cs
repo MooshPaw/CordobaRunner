@@ -80,9 +80,9 @@ public class PlayerController : MonoBehaviour
 
             if (charCon.isGrounded)
             {
-                jumpParticle.SetActive(false);
+                if (jumpParticle != null) jumpParticle.SetActive(false);
 
-                if (!lastGrounded)
+                if (!lastGrounded && landingParticle != null)
                 {
                     landingParticle.SetActive(true);
                 }
@@ -91,7 +91,7 @@ public class PlayerController : MonoBehaviour
                 {
                     moveAmount.y = jumpForce;
 
-                    jumpParticle.SetActive(true);
+                    if (jumpParticle != null) jumpParticle.SetActive(true);
 
                     AudioManager.instance.PlaySFXPitched(11);
                 }

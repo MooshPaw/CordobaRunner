@@ -25,7 +25,7 @@ public class LevelExit : MonoBehaviour
             if(!exiting)
             {
                 exiting = true;
-                anim.SetBool("active", true);
+                if (anim != null) anim.SetBool("active", true);
 
                 LevelManager.instance.EndLevel(levelToLoad);
 

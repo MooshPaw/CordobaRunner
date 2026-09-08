@@ -26,11 +26,11 @@ public class Checkpoint : MonoBehaviour
                 Checkpoint[] allCP = FindObjectsOfType<Checkpoint>();
                 foreach(Checkpoint cp in allCP)
                 {
-                    cp.anim.SetBool("active", false);
+                    if (cp.anim != null) cp.anim.SetBool("active", false);
                 }
 
 
-                anim.SetBool("active", true);
+                if (anim != null) anim.SetBool("active", true);
 
                 AudioManager.instance.PlaySFX(3);
             }
