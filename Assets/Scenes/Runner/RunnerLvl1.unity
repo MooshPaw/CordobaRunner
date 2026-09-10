@@ -131,6 +131,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 37769229}
+  - component: {fileID: 37769230}
   m_Layer: 0
   m_Name: ---Level---
   m_TagString: Untagged
@@ -157,6 +158,25 @@ Transform:
   - {fileID: 737135290}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &37769230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37769228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba5daafdaf3d0d82c955e2e1287461b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  segments:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  zPos: 50
+  creatingSegment: 0
+  segmentNum: 0
 --- !u!1 &200191039
 GameObject:
   m_ObjectHideFlags: 0
@@ -865,9 +885,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2314664373947279792, guid: 81fd05dc2bd5c890fa3859338bddbc22, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3620945012690135781}
-    - targetCorrespondingSourceObject: {fileID: 2314664373947279792, guid: 81fd05dc2bd5c890fa3859338bddbc22, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3620945012690135782}
   m_SourcePrefab: {fileID: 100100000, guid: 81fd05dc2bd5c890fa3859338bddbc22, type: 3}
 --- !u!1 &3620945012690135780 stripped
 GameObject:
@@ -888,22 +905,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpeed: 2
   horizontalSpeed: 3
---- !u!114 &3620945012690135782
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3620945012690135780}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: deb07caf29a5f064d85370609125db1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxDistance: 8
-  viewAngle: 45
-  photoPromptIcon: {fileID: 0}
-  photoButton: Fire1
+  leftLimit: 5.5
+  rightLimit: -5.5
 --- !u!4 &3620945012690135784 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3122268122477851402, guid: 81fd05dc2bd5c890fa3859338bddbc22, type: 3}
