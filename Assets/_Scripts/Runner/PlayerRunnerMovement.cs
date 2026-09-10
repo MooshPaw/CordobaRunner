@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PlayerRunnerMovement : MonoBehaviour
 {
-    public float playerSpeed = 2;
-    public float horizontalSpeed = 3;
-    public float leftLimit = 5.5f;
-    public float rightLimit = -5.5f;
+    public float playerSpeed = 8;
+    public float horizontalSpeed = 6;
+    public float leftLimit = 15f;
+    public float rightLimit = -15f;
     
     void Update()
     {
