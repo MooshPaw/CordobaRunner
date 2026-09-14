@@ -13,8 +13,11 @@ public class SegmentGenerator : MonoBehaviour
 
     private void Start()
     {
-        creatingSegment = false;
-        StartCoroutine(SegmentGen());
+        if (!creatingSegment)
+        {
+            creatingSegment = false;
+            StartCoroutine(SegmentGen());   
+        }
     }
 
     IEnumerator SegmentGen()
