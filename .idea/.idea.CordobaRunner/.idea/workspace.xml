@@ -10,15 +10,7 @@
     <configurations />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aa8fd692-4371-4a70-950d-634852e46448" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.CordobaRunner/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CordobaRunner/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AssetsUnity/Animales/Animals_FREE/Render_Pipeline_Convert/Unity_2021_Built-In_source.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AssetsUnity/Animales/Animals_FREE/Render_Pipeline_Convert/Unity_2021_HDRP_source.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AssetsUnity/Animales/Animals_FREE/Render_Pipeline_Convert/Unity_2021_URP_source.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Runner/RunnerLvl1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Runner/RunnerLvl1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Runner/PlayerRunnerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Runner/PlayerRunnerMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Runner/SegmentGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Runner/SegmentGenerator.cs" afterDir="false" />
-    </list>
+    <list default="true" id="aa8fd692-4371-4a70-950d-634852e46448" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -104,7 +96,7 @@
       <updated>1789043930311</updated>
       <workItem from="1789043932115" duration="2456000" />
       <workItem from="1789395603738" duration="64000" />
-      <workItem from="1789395683101" duration="1077000" />
+      <workItem from="1789395683101" duration="1712000" />
     </task>
     <servers />
   </component>
