@@ -170,7 +170,7 @@ MonoBehaviour:
   - {fileID: 1243125197650976038, guid: b613921534691c3358ac2aa613ade121, type: 3}
   - {fileID: 1426571624377513285, guid: 31442e4985963db9582e9c7627bbea64, type: 3}
   - {fileID: 1637528769475310351, guid: 99a427908d20837c7bac641171f5cf70, type: 3}
-  zPos: 0
+  zPos: 20
   creatingSegment: 0
   segmentNum: 0
 --- !u!1 &200191039
@@ -232,7 +232,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 100
+  far clip plane: 1000
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -277,7 +277,7 @@ PositionConstraint:
   serializedVersion: 2
   m_Weight: 1
   m_TranslationAtRest: {x: 0, y: 2, z: -3.43}
-  m_TranslationOffset: {x: 0, y: 2, z: -3.43}
+  m_TranslationOffset: {x: 0, y: 1.8, z: -3.43}
   m_AffectTranslationX: 1
   m_AffectTranslationY: 1
   m_AffectTranslationZ: 1
@@ -392,6 +392,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Segment C
       objectReference: {fileID: 0}
+    - target: {fileID: 1637528769475310351, guid: 99a427908d20837c7bac641171f5cf70, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4985061150959170966, guid: 99a427908d20837c7bac641171f5cf70, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -448,6 +452,10 @@ PrefabInstance:
     - target: {fileID: 1426571624377513285, guid: 31442e4985963db9582e9c7627bbea64, type: 3}
       propertyPath: m_Name
       value: Segment B
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426571624377513285, guid: 31442e4985963db9582e9c7627bbea64, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1594858417872786356, guid: 31442e4985963db9582e9c7627bbea64, type: 3}
       propertyPath: m_LocalPosition.x
@@ -512,7 +520,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3122268122477851402, guid: 81fd05dc2bd5c890fa3859338bddbc22, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 3122268122477851402, guid: 81fd05dc2bd5c890fa3859338bddbc22, type: 3}
       propertyPath: m_LocalPosition.z
@@ -649,6 +657,6 @@ SceneRoots:
   - {fileID: 405524331}
   - {fileID: 3620945012690135779}
   - {fileID: 5745707520666758229}
-  - {fileID: 37769229}
   - {fileID: 3154502554166937456}
   - {fileID: 77760730494444292}
+  - {fileID: 37769229}
