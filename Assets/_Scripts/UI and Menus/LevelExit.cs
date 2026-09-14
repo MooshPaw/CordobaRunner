@@ -5,6 +5,7 @@ using UnityEngine;
 public class LevelExit : MonoBehaviour
 {
     public string levelToLoad;
+    public string unlocksArea;
 
     private bool exiting;
 
@@ -25,9 +26,14 @@ public class LevelExit : MonoBehaviour
             if(!exiting)
             {
                 exiting = true;
-                if (anim != null) anim.SetBool("active", true);
+                anim.SetBool("active", true);
 
                 LevelManager.instance.EndLevel(levelToLoad);
+
+                if (!string.IsNullOrEmpty(unlocksArea))
+                {
+                    PlayerPrefs.SetInt(unlocksArea + "_unlocked", 1);
+                }
 
                 FindObjectOfType<CameraController>().endCamPos = camPos;
 
