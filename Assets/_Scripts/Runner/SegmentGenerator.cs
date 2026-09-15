@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class SegmentGenerator : MonoBehaviour
 {
@@ -7,15 +9,30 @@ public class SegmentGenerator : MonoBehaviour
     public GameObject[] segments;
     
     // Handles coordinates data
-    [SerializeField] private int zPos = 50;
+    [SerializeField] private int zPos = 20;
     [SerializeField] private bool creatingSegment = false;
     [SerializeField] private int segmentNum;
-
+    public float generationCooldown = 2;
+    
+    // Starts with a 3x segment generation
     private void Start()
+    {
+        segmentNum = Random.Range(0, 3);
+        Instantiate(segments[segmentNum], new Vector3(0, 0, zPos), Quaternion.identity);
+        zPos += 20;
+        segmentNum = Random.Range(0, 3);
+        Instantiate(segments[segmentNum], new Vector3(0, 0, zPos), Quaternion.identity);
+        zPos += 20;
+        segmentNum = Random.Range(0, 3);
+        Instantiate(segments[segmentNum], new Vector3(0, 0, zPos), Quaternion.identity);
+        zPos += 20;
+    }
+
+    private void Update()
     {
         if (!creatingSegment)
         {
-            creatingSegment = false;
+            creatingSegment = true;
             StartCoroutine(SegmentGen());   
         }
     }
@@ -24,8 +41,8 @@ public class SegmentGenerator : MonoBehaviour
     {
         segmentNum = Random.Range(0, 3);
         Instantiate(segments[segmentNum], new Vector3(0, 0, zPos), Quaternion.identity);
-        zPos += 50;
-        yield return new WaitForSeconds(3);
-        creatingSegment = true;
+        zPos += 20;
+        yield return new WaitForSeconds(generationCooldown);
+        creatingSegment = false;
     }
 }

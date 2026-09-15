@@ -10,7 +10,21 @@
     <configurations />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aa8fd692-4371-4a70-950d-634852e46448" name="Changes" comment="" />
+    <list default="true" id="aa8fd692-4371-4a70-950d-634852e46448" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CordobaRunner/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CordobaRunner/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Luis Runner/Luis Runner.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Luis Runner/Luis Runner.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Luis/Runner Animator.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Luis/Runner Animator.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RunnerAssets/Prefabs/TreeA.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RunnerAssets/Prefabs/TreeA.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RunnerAssets/Prefabs/TreeB.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RunnerAssets/Prefabs/TreeB.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RunnerAssets/Prefabs/TreeC.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RunnerAssets/Prefabs/TreeC.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RunnerAssets/_Segments/Segment A.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RunnerAssets/_Segments/Segment A.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RunnerAssets/_Segments/Segment B.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RunnerAssets/_Segments/Segment B.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RunnerAssets/_Segments/Segment C.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RunnerAssets/_Segments/Segment C.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Runner/RunnerLvl1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Runner/RunnerLvl1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Runner/PlayerRunnerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Runner/PlayerRunnerMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Runner/SegmentGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Runner/SegmentGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,7 +34,12 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/_Scripts/Runner/Coin/CollectCoin.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Scripts/Runner/CollisionDetect.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Scripts/Runner/SegmentGenerator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Scripts/Runner/TimeCounter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Scripts/Runner/UI/MasterInfo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Scripts/SceneLoaderScript.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6,
