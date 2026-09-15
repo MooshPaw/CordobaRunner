@@ -9554,7 +9554,7 @@ MonoBehaviour:
   waypoints:
   - {fileID: 633566576}
   - {fileID: 1956519584}
-  speed: 5
+  speed: 3
   pingPong: 1
   waitAtEnds: 0
   bobAmplitude: 0
@@ -28243,7 +28243,7 @@ MonoBehaviour:
   waypoints:
   - {fileID: 1669747448}
   - {fileID: 1588517408}
-  speed: 5
+  speed: 3
   pingPong: 1
   waitAtEnds: 0
   bobAmplitude: 0
@@ -110763,7 +110763,7 @@ MonoBehaviour:
   waypoints:
   - {fileID: 1856010575}
   - {fileID: 547190862}
-  speed: 5
+  speed: 3
   pingPong: 1
   waitAtEnds: 0
   bobAmplitude: 0
@@ -151174,7 +151174,7 @@ MonoBehaviour:
   waypoints:
   - {fileID: 529149753}
   - {fileID: 503850634}
-  speed: 5
+  speed: 3
   pingPong: 1
   waitAtEnds: 0
   bobAmplitude: 0
@@ -157322,11 +157322,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 779775170909857073, guid: a841f98f11ff81f419e83dde73cb8edf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 447.288
+      value: 447.71
       objectReference: {fileID: 0}
     - target: {fileID: 779775170909857073, guid: a841f98f11ff81f419e83dde73cb8edf, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -27.985912
+      value: -26.79
       objectReference: {fileID: 0}
     - target: {fileID: 779775170909857073, guid: a841f98f11ff81f419e83dde73cb8edf, type: 3}
       propertyPath: m_LocalRotation.w
@@ -197144,7 +197144,7 @@ MonoBehaviour:
   waypoints:
   - {fileID: 303155580}
   - {fileID: 1440430555}
-  speed: 5
+  speed: 3
   pingPong: 1
   waitAtEnds: 0
   bobAmplitude: 0
@@ -234459,7 +234459,7 @@ Transform:
   m_GameObject: {fileID: 2086506837}
   serializedVersion: 2
   m_LocalRotation: {x: 0.15501924, y: -0, z: -0, w: 0.98791146}
-  m_LocalPosition: {x: 415.35, y: 450.5354, z: -31.550003}
+  m_LocalPosition: {x: 415.35, y: 450.60538, z: -30.354086}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -239640,7 +239640,7 @@ MonoBehaviour:
   waypoints:
   - {fileID: 247399709}
   - {fileID: 1664645693}
-  speed: 5
+  speed: 3
   pingPong: 1
   waitAtEnds: 0
   bobAmplitude: 0
@@ -240889,6 +240889,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4206170581810127602, guid: 79a14f04a94602245978c7b41d615f52, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4206170581810127602, guid: 79a14f04a94602245978c7b41d615f52, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
@@ -241240,6 +241244,10 @@ PrefabInstance:
     - target: {fileID: 5107084578838225224, guid: c27978ecb3c683c45b674b43033e5487, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7752453122282149315, guid: c27978ecb3c683c45b674b43033e5487, type: 3}
+      propertyPath: unlocksArea
+      value: Level2
       objectReference: {fileID: 0}
     - target: {fileID: 8896138969487138882, guid: c27978ecb3c683c45b674b43033e5487, type: 3}
       propertyPath: m_Name
