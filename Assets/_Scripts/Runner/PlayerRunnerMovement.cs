@@ -6,8 +6,7 @@ public class PlayerRunnerMovement : MonoBehaviour
 {
     public float playerSpeed = 8;
     public float horizontalSpeed = 6;
-    public float leftLimit = 15f;
-    public float rightLimit = -15f;
+    [SerializeField] private SceneLoaderScript GameManagerObject;
     
     void Update()
     {
@@ -20,6 +19,11 @@ public class PlayerRunnerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
                 transform.Translate(Vector3.left * Time.deltaTime * horizontalSpeed * -1);
+        }
+
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            GameManagerObject.Pause();
         }
     }
 }
