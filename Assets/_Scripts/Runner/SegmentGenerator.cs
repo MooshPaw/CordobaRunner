@@ -12,6 +12,7 @@ public class SegmentGenerator : MonoBehaviour
     [SerializeField] private int zPos = 20;
     [SerializeField] private bool creatingSegment = false;
     [SerializeField] private int segmentNum;
+    public float generationCooldown = 2;
     
     // Starts with a 3x segment generation
     private void Start()
@@ -41,7 +42,7 @@ public class SegmentGenerator : MonoBehaviour
         segmentNum = Random.Range(0, 3);
         Instantiate(segments[segmentNum], new Vector3(0, 0, zPos), Quaternion.identity);
         zPos += 20;
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(generationCooldown);
         creatingSegment = false;
     }
 }
