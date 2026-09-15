@@ -779,6 +779,7 @@ Transform:
   - {fileID: 1627520910}
   - {fileID: 820200998}
   - {fileID: 1906223928}
+  - {fileID: 688684252}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &317112381
@@ -1341,6 +1342,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelName: Level2
   displayName: El Rio
+  previewDescription: 
+  previewThumbnail: {fileID: 0}
+  coursePreviewScene: CoursePreview
   mapPointActive: {fileID: 803080863}
   mapPointInactive: {fileID: 1020618432}
   crystalsRequired: 0
@@ -1706,6 +1710,139 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1669781109300623314, guid: e41f2185f1c11a8409ff3cd219f789a1, type: 3}
   m_PrefabInstance: {fileID: 645267271}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &688684250
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 310057306}
+    m_Modifications:
+    - target: {fileID: 5077961942730836558, guid: b5ec79143a507e74d878f65422c4f863, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 306.53458
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077961942730836558, guid: b5ec79143a507e74d878f65422c4f863, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 306.53458
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077961942730836558, guid: b5ec79143a507e74d878f65422c4f863, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 306.53458
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077961942730836558, guid: b5ec79143a507e74d878f65422c4f863, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1164.5839
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077961942730836558, guid: b5ec79143a507e74d878f65422c4f863, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -158.54071
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077961942730836558, guid: b5ec79143a507e74d878f65422c4f863, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 251.4864
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077961942730836558, guid: b5ec79143a507e74d878f65422c4f863, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077961942730836558, guid: b5ec79143a507e74d878f65422c4f863, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077961942730836558, guid: b5ec79143a507e74d878f65422c4f863, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077961942730836558, guid: b5ec79143a507e74d878f65422c4f863, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077961942730836558, guid: b5ec79143a507e74d878f65422c4f863, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077961942730836558, guid: b5ec79143a507e74d878f65422c4f863, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5077961942730836558, guid: b5ec79143a507e74d878f65422c4f863, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5562890943874257140, guid: b5ec79143a507e74d878f65422c4f863, type: 3}
+      propertyPath: m_Name
+      value: Runner
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5508336368613159102, guid: b5ec79143a507e74d878f65422c4f863, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5077961942730836558, guid: b5ec79143a507e74d878f65422c4f863, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2078088468}
+    - targetCorrespondingSourceObject: {fileID: 5077961942730836558, guid: b5ec79143a507e74d878f65422c4f863, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1244152674}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5562890943874257140, guid: b5ec79143a507e74d878f65422c4f863, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 688684254}
+    - targetCorrespondingSourceObject: {fileID: 5562890943874257140, guid: b5ec79143a507e74d878f65422c4f863, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 688684253}
+  m_SourcePrefab: {fileID: 100100000, guid: b5ec79143a507e74d878f65422c4f863, type: 3}
+--- !u!1 &688684251 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5562890943874257140, guid: b5ec79143a507e74d878f65422c4f863, type: 3}
+  m_PrefabInstance: {fileID: 688684250}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &688684252 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5077961942730836558, guid: b5ec79143a507e74d878f65422c4f863, type: 3}
+  m_PrefabInstance: {fileID: 688684250}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &688684253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688684251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e20d591cdc6e754480bb09a1798456e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: 
+  displayName: Runner
+  previewDescription: 
+  previewThumbnail: {fileID: 0}
+  coursePreviewScene: CoursePreview
+  mapPointActive: {fileID: 2078088467}
+  mapPointInactive: {fileID: 1244152673}
+  crystalsRequired: 0
+--- !u!65 &688684254
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688684251}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.51385975, y: 0.77619016, z: 0.51385975}
+  m_Center: {x: 0, y: 0.38809508, z: 0}
 --- !u!1 &693571031 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7882981993178472658, guid: 77276c782e506e94a8f2534bdc4a918e, type: 3}
@@ -2775,7 +2912,7 @@ Transform:
   m_GameObject: {fileID: 1209330113}
   serializedVersion: 2
   m_LocalRotation: {x: 0.16543084, y: -0, z: -0, w: 0.98622143}
-  m_LocalPosition: {x: 466.9, y: 1026, z: -79.1}
+  m_LocalPosition: {x: 472.82, y: 1017.04, z: -90.31}
   m_LocalScale: {x: 0.021445747, y: 0.021445747, z: 0.021445747}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2865,6 +3002,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelName: Level3
   displayName: El Ritmo
+  previewDescription: 
+  previewThumbnail: {fileID: 0}
+  coursePreviewScene: CoursePreview
   mapPointActive: {fileID: 1396264704}
   mapPointInactive: {fileID: 2064655057}
   crystalsRequired: 0
@@ -2873,6 +3013,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6e3c31de3484a3b4c8297a51547abe44, type: 3}
   m_PrefabInstance: {fileID: 2074066270}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1244152673
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1244152674}
+  m_Layer: 0
+  m_Name: Inactive
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1244152674
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244152673}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 688684252}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1313057794
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3542,6 +3713,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelName: Level1
   displayName: La Tierra
+  previewDescription: 
+  previewThumbnail: {fileID: 0}
+  coursePreviewScene: CoursePreview
   mapPointActive: {fileID: 317112381}
   mapPointInactive: {fileID: 2033908589}
   crystalsRequired: 0
@@ -4186,6 +4360,37 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1234724519}
   m_SourcePrefab: {fileID: 100100000, guid: 6e3c31de3484a3b4c8297a51547abe44, type: 3}
+--- !u!1 &2078088467
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2078088468}
+  m_Layer: 0
+  m_Name: Active
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2078088468
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078088467}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 688684252}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

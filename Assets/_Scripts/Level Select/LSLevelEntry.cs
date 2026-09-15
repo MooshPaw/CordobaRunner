@@ -7,6 +7,11 @@ public class LSLevelEntry : MonoBehaviour
 {
     public string levelName, displayName;
 
+    [TextArea]
+    public string previewDescription;
+    public Sprite previewThumbnail;
+    public string coursePreviewScene;
+
     public GameObject mapPointActive, mapPointInactive;
 
     private bool canLoadLevel, levelLoading;
@@ -87,7 +92,11 @@ public class LSLevelEntry : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
-        SceneManager.LoadScene(levelName);
-        PlayerPrefs.SetString("CurrentLevel", levelName);
+        PendingLevel.levelName = levelName;
+        PendingLevel.displayName = displayName;
+        PendingLevel.description = previewDescription;
+        PendingLevel.thumbnail = previewThumbnail;
+
+        SceneManager.LoadScene(coursePreviewScene);
     }
 }

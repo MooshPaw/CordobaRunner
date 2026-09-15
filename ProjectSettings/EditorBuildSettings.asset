@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Plataformer/Level3.unity
     guid: 3187af4787ba0b546bb898770602a557
+  - enabled: 1
+    path: Assets/Scenes/CoursePreview.unity
+    guid: 865f9ffa71a96ed4d8ec6861df517b36
   m_configObjects: {}
