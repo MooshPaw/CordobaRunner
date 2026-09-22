@@ -170,6 +170,7 @@ MonoBehaviour:
   - {fileID: 1243125197650976038, guid: b613921534691c3358ac2aa613ade121, type: 3}
   - {fileID: 1426571624377513285, guid: 31442e4985963db9582e9c7627bbea64, type: 3}
   - {fileID: 1637528769475310351, guid: 99a427908d20837c7bac641171f5cf70, type: 3}
+  - {fileID: 1637528769475310351, guid: b6fbdb42745fc4ab8bcb96da0218868f, type: 3}
   zPos: 20
   creatingSegment: 0
   segmentNum: 0
