@@ -53,8 +53,8 @@ public class LevelManager : MonoBehaviour
 
 
 
-        UIController.instance.coinText.text = currentCoins.ToString();
-        UIController.instance.crystalText.text = currentCrystals.ToString();
+        if (UIController.instance.coinText != null) UIController.instance.coinText.text = currentCoins.ToString();
+        if (UIController.instance.crystalText != null) UIController.instance.crystalText.text = currentCrystals.ToString();
     }
 
     // Update is called once per frame
@@ -128,7 +128,7 @@ public class LevelManager : MonoBehaviour
             currentCoins -= coinThreshold;
         }
 
-        UIController.instance.coinText.text = currentCoins.ToString();
+        if (UIController.instance.coinText != null) UIController.instance.coinText.text = currentCoins.ToString();
 
         PlayerPrefs.SetInt("Coins", currentCoins);
     }
@@ -137,7 +137,7 @@ public class LevelManager : MonoBehaviour
     {
         currentCrystals++;
 
-        UIController.instance.crystalText.text = currentCrystals.ToString();
+        if (UIController.instance.crystalText != null) UIController.instance.crystalText.text = currentCrystals.ToString();
 
         PlayerPrefs.SetInt("Crystals", currentCrystals);
     }
@@ -151,7 +151,10 @@ public class LevelManager : MonoBehaviour
     {
         levelComplete = true;
 
-        player.anim.SetTrigger("endLevel");
+        if (HasParameter(player.anim, "endLevel"))
+        {
+            player.anim.SetTrigger("endLevel");
+        }
 
         yield return new WaitForSeconds(waitToEndLevel - 1f);
 
@@ -160,5 +163,18 @@ public class LevelManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         SceneManager.LoadScene(nextLevel);
+    }
+
+    // Evita el error "Parameter 'x' does not exist" si el Animator todavia
+    // no tiene ese trigger agregado (ej. antes de que exista la animacion
+    // de fin de nivel).
+    private bool HasParameter(Animator animator, string paramName)
+    {
+        foreach (AnimatorControllerParameter param in animator.parameters)
+        {
+            if (param.name == paramName) return true;
+        }
+
+        return false;
     }
 }
