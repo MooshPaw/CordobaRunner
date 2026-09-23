@@ -6,12 +6,13 @@ using UnityEngine;
 public class CollectCoin : MonoBehaviour
 {
     [SerializeField] AudioSource coinFX;
+    [SerializeField] public int coinValue;
     
 
     void OnTriggerEnter(Collider other)
     {
         coinFX.Play();
-        MasterInfo.coinCount += 1;
+        MasterInfo.coinCount += coinValue;
         this.gameObject.SetActive(false);
     }
 
