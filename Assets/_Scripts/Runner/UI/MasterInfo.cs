@@ -7,9 +7,11 @@ public class MasterInfo : MonoBehaviour
 {
     public static int coinCount = 0;
     [SerializeField] GameObject coinDisplay;
-
+    [SerializeField] GameObject finalScoreDisplay;
+    
     private void Update()
     {
-        coinDisplay.GetComponent<TMPro.TMP_Text>().text = "COINS: " + coinCount.ToString();
+        coinDisplay.GetComponent<TMPro.TMP_Text>().text = "SCORE: " + coinCount.ToString();
+        finalScoreDisplay.GetComponent<TMPro.TMP_Text>().text = "FINAL SCORE: " + coinCount.ToString();
     }
 }
