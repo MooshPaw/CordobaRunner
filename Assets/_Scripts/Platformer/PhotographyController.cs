@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 // Va sobre el mismo GameObject 'Player'. Detecta el PhotoSubject m\u00e1s cercano
 // dentro de un cono frente al PERSONAJE (no la c\u00e1mara, que mira en \u00e1ngulo
@@ -9,10 +10,10 @@ public class PhotographyController : MonoBehaviour
 {
     public float maxDistance = 8f;
     public float viewAngle = 45f;
-
-    public GameObject photoPromptIcon; // opcional: un \u00edcono de "hay algo que fotografiar"
-    public string photoButton = "Fire1"; // cambia esto en Input Manager si prefieres otro bot\u00f3n
-
+    public GameObject photoPromptIcon; 
+    public InputActionReference photoAction;
+    private void OnEnable()  { if (photoAction != null) photoAction.action.Enable(); }
+    private void OnDisable() { if (photoAction != null) photoAction.action.Disable(); }
     private PhotoSubject currentTarget;
 
     // Update is called once per frame
@@ -25,7 +26,7 @@ public class PhotographyController : MonoBehaviour
             photoPromptIcon.SetActive(currentTarget != null);
         }
 
-        if (currentTarget != null && Input.GetButtonDown(photoButton))
+        if (currentTarget != null && photoAction != null && photoAction.action.WasPressedThisFrame())
         {
             TakePhoto();
         }

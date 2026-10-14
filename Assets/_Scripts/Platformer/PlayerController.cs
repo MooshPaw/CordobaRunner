@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,26 +11,19 @@ public class PlayerController : MonoBehaviour
     {
         instance = this;
     }
-
     public float moveSpeed;
     public float jumpForce, gravityScale;
     private float yStore;
-
+    public InputActionReference moveAction;
+    public InputActionReference jumpAction;
     public CharacterController charCon;
-
     private CameraController cam;
-
     private Vector3 moveAmount;
-
     public float rotateSpeed = 10f;
-
     public Animator anim;
-
     public GameObject jumpParticle, landingParticle;
     private bool lastGrounded;
-
     public float bounceForce;
-
     [HideInInspector]
     public bool stopMoving;
 
@@ -62,7 +56,8 @@ public class PlayerController : MonoBehaviour
 
             yStore = moveAmount.y;
 
-            moveAmount = (cam.transform.forward * Input.GetAxisRaw("Vertical")) + (cam.transform.right * Input.GetAxisRaw("Horizontal"));
+            Vector2 moveInput = moveAction != null ? moveAction.action.ReadValue<Vector2>() : Vector2.zero;
+            moveAmount = (cam.transform.forward * moveInput.y) + (cam.transform.right * moveInput.x);
             moveAmount.y = 0f;
             moveAmount = moveAmount.normalized;
 
@@ -87,7 +82,7 @@ public class PlayerController : MonoBehaviour
                     landingParticle.SetActive(true);
                 }
 
-                if (Input.GetButtonDown("Jump"))
+                if (jumpAction != null && jumpAction.action.WasPressedThisFrame())
                 {
                     moveAmount.y = jumpForce;
 
@@ -116,4 +111,17 @@ public class PlayerController : MonoBehaviour
 
         charCon.Move(Vector3.up * bounceForce * Time.deltaTime);
     }
+
+    private void OnEnable()
+   {
+    if (moveAction != null) moveAction.action.Enable();
+    if (jumpAction != null) jumpAction.action.Enable();
+   }
+
+    private void OnDisable()
+   {
+    if (moveAction != null) moveAction.action.Disable();
+    if (jumpAction != null) jumpAction.action.Disable();
+    }
+
 }
