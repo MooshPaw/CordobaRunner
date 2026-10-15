@@ -49,11 +49,6 @@ public class UIController : MonoBehaviour
                 Mathf.MoveTowards(fadeScreen.color.a, 0f, fadeSpeed * Time.deltaTime)
                 );
         }
-
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            PauseUnpause();
-        }
     }
 
     public void FadeToBlack()

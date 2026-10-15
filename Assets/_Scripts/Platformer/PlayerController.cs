@@ -14,8 +14,8 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed;
     public float jumpForce, gravityScale;
     private float yStore;
-    public InputActionReference moveAction;
-    public InputActionReference jumpAction;
+    private Vector2 moveInput;
+    private bool jumpPressed;
     public CharacterController charCon;
     private CameraController cam;
     private Vector3 moveAmount;
@@ -56,7 +56,6 @@ public class PlayerController : MonoBehaviour
 
             yStore = moveAmount.y;
 
-            Vector2 moveInput = moveAction != null ? moveAction.action.ReadValue<Vector2>() : Vector2.zero;
             moveAmount = (cam.transform.forward * moveInput.y) + (cam.transform.right * moveInput.x);
             moveAmount.y = 0f;
             moveAmount = moveAmount.normalized;
@@ -82,7 +81,7 @@ public class PlayerController : MonoBehaviour
                     landingParticle.SetActive(true);
                 }
 
-                if (jumpAction != null && jumpAction.action.WasPressedThisFrame())
+                if (jumpPressed)
                 {
                     moveAmount.y = jumpForce;
 
@@ -91,6 +90,10 @@ public class PlayerController : MonoBehaviour
                     AudioManager.instance.PlaySFXPitched(11);
                 }
             }
+
+            // Cleared every frame regardless of grounded state, so a jump press only ever
+            // has a one-frame window to land a jump, same as the old WasPressedThisFrame() check.
+            jumpPressed = false;
 
             lastGrounded = charCon.isGrounded;
 
@@ -112,16 +115,19 @@ public class PlayerController : MonoBehaviour
         charCon.Move(Vector3.up * bounceForce * Time.deltaTime);
     }
 
-    private void OnEnable()
-   {
-    if (moveAction != null) moveAction.action.Enable();
-    if (jumpAction != null) jumpAction.action.Enable();
-   }
+    public void OnMove(InputValue value)
+    {
+        moveInput = value.Get<Vector2>();
+    }
 
-    private void OnDisable()
-   {
-    if (moveAction != null) moveAction.action.Disable();
-    if (jumpAction != null) jumpAction.action.Disable();
+    public void OnJump(InputValue value)
+    {
+        if (value.isPressed) jumpPressed = true;
+    }
+
+    public void OnPause(InputValue value)
+    {
+        UIController.instance.PauseUnpause();
     }
 
 }
