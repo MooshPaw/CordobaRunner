@@ -19,6 +19,12 @@ public class LSLevelEntry : MonoBehaviour
     public int crystalsRequired;
     private bool levelUnlocked;
 
+    private bool jumpPressed;
+
+    private void OnEnable() => PlayerController.JumpPerformed += HandleJumpPerformed;
+    private void OnDisable() => PlayerController.JumpPerformed -= HandleJumpPerformed;
+    private void HandleJumpPerformed() => jumpPressed = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,11 +53,13 @@ public class LSLevelEntry : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(canLoadLevel && Input.GetButtonDown("Jump") && !levelLoading)
+        if(canLoadLevel && jumpPressed && !levelLoading)
         {
             levelLoading = true;
             StartCoroutine(LoadLevelCo());
         }
+
+        jumpPressed = false;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -60,15 +68,15 @@ public class LSLevelEntry : MonoBehaviour
         {
             canLoadLevel = true;
 
-            LevelSelectController.instance.levelInfoBox.SetActive(true);
-            LevelSelectController.instance.levelText.text = displayName;
+            LevelSelectController.instance.SetLevelInfoBoxActive(true);
+            LevelSelectController.instance.SetLevelText(displayName);
 
             if(levelUnlocked)
             {
-                LevelSelectController.instance.actionText.text = "Press Jump To Enter";
+                LevelSelectController.instance.SetActionText("Press Jump To Enter");
             } else
             {
-                LevelSelectController.instance.actionText.text = crystalsRequired.ToString() + " Crystals required to unlock";
+                LevelSelectController.instance.SetActionText(crystalsRequired.ToString() + " Crystals required to unlock");
             }
         }
     }
@@ -79,7 +87,7 @@ public class LSLevelEntry : MonoBehaviour
         {
             canLoadLevel = false;
 
-            LevelSelectController.instance.levelInfoBox.SetActive(false);
+            LevelSelectController.instance.SetLevelInfoBoxActive(false);
         }
     }
 

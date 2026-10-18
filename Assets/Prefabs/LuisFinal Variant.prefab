@@ -52,18 +52,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4162529165088752353, guid: a841f98f11ff81f419e83dde73cb8edf, type: 3}
-      propertyPath: photoAction
-      value: 
-      objectReference: {fileID: -888076084664920493, guid: b86f96b5808491f48a7079dd5ff58a7b, type: 3}
-    - target: {fileID: 4729820049249751970, guid: a841f98f11ff81f419e83dde73cb8edf, type: 3}
-      propertyPath: jumpAction
-      value: 
-      objectReference: {fileID: -7937763420994524591, guid: b86f96b5808491f48a7079dd5ff58a7b, type: 3}
-    - target: {fileID: 4729820049249751970, guid: a841f98f11ff81f419e83dde73cb8edf, type: 3}
-      propertyPath: moveAction
-      value: 
-      objectReference: {fileID: -6243373197709745285, guid: b86f96b5808491f48a7079dd5ff58a7b, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

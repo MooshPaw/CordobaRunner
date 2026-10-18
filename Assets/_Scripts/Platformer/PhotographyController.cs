@@ -10,10 +10,8 @@ public class PhotographyController : MonoBehaviour
 {
     public float maxDistance = 8f;
     public float viewAngle = 45f;
-    public GameObject photoPromptIcon; 
-    public InputActionReference photoAction;
-    private void OnEnable()  { if (photoAction != null) photoAction.action.Enable(); }
-    private void OnDisable() { if (photoAction != null) photoAction.action.Disable(); }
+    public GameObject photoPromptIcon;
+    private bool photoPressed;
     private PhotoSubject currentTarget;
 
     // Update is called once per frame
@@ -26,10 +24,19 @@ public class PhotographyController : MonoBehaviour
             photoPromptIcon.SetActive(currentTarget != null);
         }
 
-        if (currentTarget != null && photoAction != null && photoAction.action.WasPressedThisFrame())
+        // Cleared every frame regardless of target, so a photo press only ever has a
+        // one-frame window to take a photo, same as the old WasPressedThisFrame() check.
+        if (photoPressed)
         {
-            TakePhoto();
+            photoPressed = false;
+
+            if (currentTarget != null) TakePhoto();
         }
+    }
+
+    public void OnPhoto(InputValue value)
+    {
+        if (value.isPressed) photoPressed = true;
     }
 
     private void DetectSubject()

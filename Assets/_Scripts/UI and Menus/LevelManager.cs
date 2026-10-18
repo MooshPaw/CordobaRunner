@@ -53,8 +53,8 @@ public class LevelManager : MonoBehaviour
 
 
 
-        if (UIController.instance.coinText != null) UIController.instance.coinText.text = currentCoins.ToString();
-        if (UIController.instance.crystalText != null) UIController.instance.crystalText.text = currentCrystals.ToString();
+        UIController.instance.SetCoinText(currentCoins.ToString());
+        UIController.instance.SetCrystalText(currentCrystals.ToString());
     }
 
     // Update is called once per frame
@@ -63,7 +63,7 @@ public class LevelManager : MonoBehaviour
         if (!levelComplete)
         {
             levelTimer += Time.deltaTime;
-            UIController.instance.timeText.text = levelTimer.ToString("0");
+            UIController.instance.SetTimeText(levelTimer.ToString("0"));
         } else
         {
             player.transform.rotation = Quaternion.Slerp(player.transform.rotation, Quaternion.Euler(0f, 180f, 0f), 10f * Time.deltaTime);
@@ -128,7 +128,7 @@ public class LevelManager : MonoBehaviour
             currentCoins -= coinThreshold;
         }
 
-        if (UIController.instance.coinText != null) UIController.instance.coinText.text = currentCoins.ToString();
+        UIController.instance.SetCoinText(currentCoins.ToString());
 
         PlayerPrefs.SetInt("Coins", currentCoins);
     }
@@ -137,7 +137,7 @@ public class LevelManager : MonoBehaviour
     {
         currentCrystals++;
 
-        if (UIController.instance.crystalText != null) UIController.instance.crystalText.text = currentCrystals.ToString();
+        UIController.instance.SetCrystalText(currentCrystals.ToString());
 
         PlayerPrefs.SetInt("Crystals", currentCrystals);
     }
