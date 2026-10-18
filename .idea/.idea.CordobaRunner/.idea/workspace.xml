@@ -11,18 +11,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa8fd692-4371-4a70-950d-634852e46448" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.CordobaRunner/.idea/claudeCodeEditorTabs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CordobaRunner/.idea/claudeCodeEditorTabs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CordobaRunner/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CordobaRunner/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/Luis Runner/Luis Runner.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Luis Runner/Luis Runner.inputactions" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/Luis Runner/Luis Runner.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Luis Runner/Luis Runner.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/Luis/PlayerControls.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Luis/PlayerControls.inputactions" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/LuisFinal Variant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/LuisFinal Variant.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/LuisFinal.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/LuisFinal.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Platformer/PhotographyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Platformer/PhotographyController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LLM/Bridge/response.md" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LLM/Bridge/response.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/MobileControls.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/MobileControls.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/Platformer/Canvas Vertical.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/Platformer/Canvas Vertical.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/Platformer/Canvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/Platformer/Canvas.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LevelSelect.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LevelSelect.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Plataformer/Level1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Plataformer/Level1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Plataformer/Level2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Plataformer/Level2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Plataformer/Level3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Plataformer/Level3.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Starter.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Starter.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Level Select/LSLevelEntry.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Level Select/LSLevelEntry.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Level Select/LevelSelectController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Level Select/LevelSelectController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/MobileControls.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/MobileControls.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Platformer/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Platformer/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Runner/PlayerRunnerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Runner/PlayerRunnerMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/UI and Menus/LevelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/UI and Menus/LevelManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scripts/UI and Menus/UIController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/UI and Menus/UIController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,6 +137,8 @@
       <workItem from="1790689224974" duration="174000" />
       <workItem from="1792071917893" duration="1163000" />
       <workItem from="1792073098004" duration="2728000" />
+      <workItem from="1792294551010" duration="4895000" />
+      <workItem from="1792299642270" duration="264000" />
     </task>
     <servers />
   </component>

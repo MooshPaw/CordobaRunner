@@ -1,5 +1,4 @@
-﻿<!-- Request: open-scene path="Assets/Scenes/Runner/RunnerLvl1.unity" -->
-<!-- Time: 2026-10-15 09:54:17 -->
+﻿<!-- Request: duplicate path="Canvas" -->
+<!-- Time: 2026-10-18 00:03:33 -->
 
-Opened scene: `Assets/Scenes/Runner/RunnerLvl1.unity`
-Root objects: 11
+Duplicated `Canvas` → `Canvas Vertical`

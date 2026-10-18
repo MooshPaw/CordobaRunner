@@ -120,9 +120,15 @@ public class PlayerController : MonoBehaviour
         moveInput = value.Get<Vector2>();
     }
 
+    public static event System.Action JumpPerformed;
+
     public void OnJump(InputValue value)
     {
-        if (value.isPressed) jumpPressed = true;
+        if (value.isPressed)
+        {
+            jumpPressed = true;
+            JumpPerformed?.Invoke();
+        }
     }
 
     public void OnPause(InputValue value)
