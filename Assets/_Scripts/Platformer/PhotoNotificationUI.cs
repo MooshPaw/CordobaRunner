@@ -1,28 +1,44 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
-// Peque\u00f1o popup propio, separado del UIController compartido a prop\u00f3sito
-// (para no tocar ese script y arriesgar nada con el modo Runner).
+// Muestra la foto y su descripcion apenas se captura. Debe ir en un objeto que
+// siempre este activo (el Canvas), no en el panel que se apaga.
 public class PhotoNotificationUI : MonoBehaviour
 {
     public GameObject notificationPanel;
-    public TMP_Text notificationText;
-    public float displayTime = 2f;
+    public TMP_Text notificationText;   // titulo: "¡Foto capturada! Nombre"
+    public Image photoImage;
+    public TMP_Text descriptionText;
+    public float displayTime = 4f;
 
-    public void ShowNotification(string subjectName, AlbumCategory category)
+    public void ShowEntry(PhotoEntryData entry)
     {
         StopAllCoroutines();
-        StartCoroutine(ShowCo(subjectName, category));
+        StartCoroutine(ShowCo(entry));
     }
 
-    private IEnumerator ShowCo(string subjectName, AlbumCategory category)
+    public void Hide()
     {
-        notificationPanel.SetActive(true);
-        notificationText.text = "¡Foto capturada! " + subjectName + " (" + category.ToString() + ")";
+        StopAllCoroutines();
+        notificationPanel.SetActive(false);
+    }
 
-        yield return new WaitForSeconds(displayTime);
+    private IEnumerator ShowCo(PhotoEntryData entry)
+    {
+        if (notificationText != null) notificationText.text = "¡Foto capturada! " + entry.displayName;
+        if (descriptionText != null) descriptionText.text = entry.description;
+
+        if (photoImage != null)
+        {
+            photoImage.sprite = entry.photo;
+            photoImage.color = Color.white;
+        }
+
+        notificationPanel.SetActive(true);
+
+        yield return new WaitForSecondsRealtime(displayTime);
 
         notificationPanel.SetActive(false);
     }

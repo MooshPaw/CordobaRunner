@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public enum AlbumCategory
 {
@@ -12,41 +10,46 @@ public enum AlbumCategory
     Gastronomia
 }
 
-// Colócalo en cualquier objeto del nivel que Luis Fernando pueda fotografiar
-// (flora, huellas, platos t\u00edpicos, sombreros, instrumentos...).
+// Va en cada objeto del nivel que se pueda fotografiar. Nombre, descripcion e
+// imagen viven en el PhotoEntryData que le asignes.
 public class PhotoSubject : MonoBehaviour
 {
-    public string subjectName;
-    public AlbumCategory category;
-
-    // Igual que en Crystal.cs: un ID \u00fanico por objeto para que quede guardado
-    // como ya fotografiado aunque recargues el nivel.
-    public string uniqueID;
+    public PhotoEntryData entry;
 
     [HideInInspector]
     public bool photographed;
 
-    // Start is called before the first frame update
-    void Start()
+    // Lista de sujetos activos: evita FindObjectsOfType en cada frame (importante en celular).
+    public static readonly List<PhotoSubject> All = new List<PhotoSubject>();
+
+    private void OnEnable() { All.Add(this); }
+    private void OnDisable() { All.Remove(this); }
+
+    private void Start()
     {
-        if (PlayerPrefs.GetInt(PersistenceKey(), 0) == 1)
+        if (entry == null)
         {
-            photographed = true;
+            Debug.LogWarning("[PhotoSubject] " + name + " no tiene 'Entry' asignado.");
         }
+
+        Refresh();
     }
 
-    private string PersistenceKey()
+    public void Refresh()
     {
-        return SceneManager.GetActiveScene().name + "_photo_" + uniqueID;
+        photographed = entry == null || AlbumManager.IsDiscovered(entry);
     }
 
     public void MarkPhotographed()
     {
         if (photographed) return;
 
-        photographed = true;
-        PlayerPrefs.SetInt(PersistenceKey(), 1);
+        if (AlbumManager.instance == null)
+        {
+            Debug.LogWarning("[PhotoSubject] No hay AlbumManager en la escena (falta el prefab PhotoSystem).");
+            return;
+        }
 
-        AlbumManager.instance.RegisterPhoto(category, subjectName);
+        AlbumManager.instance.RegisterPhoto(entry);
     }
 }
