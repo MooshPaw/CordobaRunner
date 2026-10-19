@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+#if UNITY_EDITOR
+using UnityEngine.InputSystem;
+#endif
 
 public class LevelManager : MonoBehaviour
 {
@@ -70,7 +73,7 @@ public class LevelManager : MonoBehaviour
         }
 
 #if UNITY_EDITOR
-        if(Input.GetKeyDown(KeyCode.C))
+        if(Keyboard.current != null && Keyboard.current.cKey.wasPressedThisFrame)
         {
             PlayerPrefs.DeleteAll();
         }

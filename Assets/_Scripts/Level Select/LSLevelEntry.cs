@@ -19,11 +19,16 @@ public class LSLevelEntry : MonoBehaviour
     public int crystalsRequired;
     private bool levelUnlocked;
 
-    private bool jumpPressed;
+    // Buffered the same way as the player's own jump: a press is held for a short window
+    // instead of being discarded the instant it's read, so it isn't lost to a stray single-frame
+    // gap between the jump press and canLoadLevel/Update() timing (e.g. jumping momentarily
+    // lifts the player's collider out of the trigger zone before Update() gets to consume it).
+    private const float jumpBufferTime = 0.2f;
+    private float jumpBufferCounter;
 
     private void OnEnable() => PlayerController.JumpPerformed += HandleJumpPerformed;
     private void OnDisable() => PlayerController.JumpPerformed -= HandleJumpPerformed;
-    private void HandleJumpPerformed() => jumpPressed = true;
+    private void HandleJumpPerformed() => jumpBufferCounter = jumpBufferTime;
 
     // Start is called before the first frame update
     void Start()
@@ -53,13 +58,14 @@ public class LSLevelEntry : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(canLoadLevel && jumpPressed && !levelLoading)
+        if (jumpBufferCounter > 0f) jumpBufferCounter -= Time.deltaTime;
+
+        if(canLoadLevel && levelUnlocked && jumpBufferCounter > 0f && !levelLoading)
         {
             levelLoading = true;
+            jumpBufferCounter = 0f;
             StartCoroutine(LoadLevelCo());
         }
-
-        jumpPressed = false;
     }
 
     private void OnTriggerEnter(Collider other)
