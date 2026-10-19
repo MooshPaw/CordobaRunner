@@ -1,4 +1,10 @@
-﻿<!-- Request: duplicate path="Canvas" -->
-<!-- Time: 2026-10-18 00:03:33 -->
+﻿<!-- Request: status -->
+<!-- Time: 2026-10-18 19:04:54 -->
 
-Duplicated `Canvas` → `Canvas Vertical`
+# UnityBridge Status
+
+**Version:** 1.1
+**Play Mode:** No
+**Compiling:** No
+
+**Compilation Errors:** None

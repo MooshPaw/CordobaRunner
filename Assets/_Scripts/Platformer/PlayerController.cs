@@ -15,8 +15,24 @@ public class PlayerController : MonoBehaviour
     public float jumpForce, gravityScale;
     private float yStore;
     private Vector2 moveInput;
-    private bool jumpPressed;
+    // A jump press is buffered for a short window instead of being discarded the instant it's
+    // read, so a press slightly before landing still triggers the jump.
+    public float jumpBufferTime = 0.15f;
+    private float jumpBufferCounter;
+
+    // "Coyote time": jumping is still allowed for a short window after walking off a ledge,
+    // so a press right at the edge isn't lost just because the ground check already reads false.
+    public float coyoteTime = 0.15f;
+    private float coyoteCounter;
     public CharacterController charCon;
+
+    // CharacterController.isGrounded is only updated by Move() and is known to read false for
+    // stray frames even while standing still on flat ground, which made jumping unreliable.
+    // This does its own ground check instead, independent of Move()'s timing.
+    public float groundCheckRadius = 0.2f;
+    public float groundCheckOffset = 0.05f;
+    private readonly Collider[] groundCheckHits = new Collider[8];
+    private bool grounded;
     private CameraController cam;
     private Vector3 moveAmount;
     public float rotateSpeed = 10f;
@@ -37,9 +53,24 @@ public class PlayerController : MonoBehaviour
         charCon.Move(new Vector3(0f, Physics.gravity.y * gravityScale * Time.deltaTime, 0f));
     }
 
+    private bool CheckGrounded()
+    {
+        Vector3 bottom = charCon.bounds.center - Vector3.up * charCon.bounds.extents.y;
+        Vector3 origin = bottom + Vector3.up * groundCheckOffset;
+
+        int count = Physics.OverlapSphereNonAlloc(origin, groundCheckRadius, groundCheckHits, ~0, QueryTriggerInteraction.Ignore);
+        for (int i = 0; i < count; i++)
+        {
+            if (groundCheckHits[i] != null && groundCheckHits[i] != charCon)
+                return true;
+        }
+
+        return false;
+    }
+
     private void FixedUpdate()
     {
-        if (!charCon.isGrounded)
+        if (!CheckGrounded())
         {
             moveAmount.y = moveAmount.y + (Physics.gravity.y * gravityScale * Time.fixedDeltaTime);
         } else
@@ -72,30 +103,39 @@ public class PlayerController : MonoBehaviour
 
             moveAmount.y = yStore;
 
-            if (charCon.isGrounded)
+            grounded = CheckGrounded();
+
+            if (grounded)
             {
+                coyoteCounter = coyoteTime;
+
                 if (jumpParticle != null) jumpParticle.SetActive(false);
 
                 if (!lastGrounded && landingParticle != null)
                 {
                     landingParticle.SetActive(true);
                 }
-
-                if (jumpPressed)
-                {
-                    moveAmount.y = jumpForce;
-
-                    if (jumpParticle != null) jumpParticle.SetActive(true);
-
-                    AudioManager.instance.PlaySFXPitched(11);
-                }
+            }
+            else
+            {
+                coyoteCounter -= Time.deltaTime;
             }
 
-            // Cleared every frame regardless of grounded state, so a jump press only ever
-            // has a one-frame window to land a jump, same as the old WasPressedThisFrame() check.
-            jumpPressed = false;
+            if (jumpBufferCounter > 0f && coyoteCounter > 0f)
+            {
+                moveAmount.y = jumpForce;
 
-            lastGrounded = charCon.isGrounded;
+                jumpBufferCounter = 0f;
+                coyoteCounter = 0f;
+
+                if (jumpParticle != null) jumpParticle.SetActive(true);
+
+                AudioManager.instance.PlaySFXPitched(11);
+            }
+
+            if (jumpBufferCounter > 0f) jumpBufferCounter -= Time.deltaTime;
+
+            lastGrounded = grounded;
 
             charCon.Move(new Vector3(moveAmount.x * moveSpeed, moveAmount.y, moveAmount.z * moveSpeed) * Time.deltaTime);
 
@@ -103,7 +143,7 @@ public class PlayerController : MonoBehaviour
             float moveVel = new Vector3(moveAmount.x, 0f, moveAmount.z).magnitude * moveSpeed;
 
             anim.SetFloat("speed", moveVel);
-            anim.SetBool("isGrounded", charCon.isGrounded);
+            anim.SetBool("isGrounded", grounded);
             anim.SetFloat("yVel", moveAmount.y);
         }
     }
@@ -126,7 +166,7 @@ public class PlayerController : MonoBehaviour
     {
         if (value.isPressed)
         {
-            jumpPressed = true;
+            jumpBufferCounter = jumpBufferTime;
             JumpPerformed?.Invoke();
         }
     }
