@@ -12,12 +12,16 @@ public enum AlbumCategory
 public class PhotoEntryData : ScriptableObject
 {
     [Header("Datos de la Foto")]
-    public string displayName = "Nuevo Objeto"; // Renombrado para coincidir con tu UI
+    public string displayName = "Nuevo Objeto"; 
     public AlbumCategory categoria;
     
     [TextArea(3, 5)]
-    public string description; // Renombrado para coincidir con tu UI
+    public string description; 
     
     [Header("Imagen")]
-    public Sprite photo; // Agregado para solucionar el error de la línea 35
+    public Sprite photo; 
+
+    [Header("Progreso")]
+    [Tooltip("El juego marcará esto automáticamente al tomar la foto")]
+    public bool isDiscovered = false; // <-- ESTA ES LA CLAVE PARA PASAR DE NIVEL
 }

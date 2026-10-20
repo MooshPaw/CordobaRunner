@@ -3,20 +3,15 @@ using UnityEngine;
 public class PhotoSubject : MonoBehaviour
 {
     [Header("Configuración")]
-    [Tooltip("Arrastra aquí el archivo de datos (PhotoEntryData) de este objeto")]
     public PhotoEntryData entry; 
-
-    [HideInInspector]
-    public bool isPhotographed = false;
 
     public void MarkAsPhotographed()
     {
-        if (!isPhotographed && entry != null)
+        // Revisamos la memoria del archivo directamente
+        if (entry != null && !entry.isDiscovered) 
         {
-            isPhotographed = true;
-            // Aquí está la corrección: ahora usa "displayName"
+            entry.isDiscovered = true; // ¡Se guarda en el archivo y sobrevive al nivel!
             Debug.Log($"¡Foto tomada exitosamente a: {entry.displayName}!");
-            
         }
         else if (entry == null)
         {

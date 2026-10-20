@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+#if ENABLE_INPUT_SYSTEM
+using UnityEngine.InputSystem;
+#endif
 
 public class LSLevelEntry : MonoBehaviour
 {
@@ -18,17 +21,6 @@ public class LSLevelEntry : MonoBehaviour
 
     public int crystalsRequired;
     private bool levelUnlocked;
-
-    // Buffered the same way as the player's own jump: a press is held for a short window
-    // instead of being discarded the instant it's read, so it isn't lost to a stray single-frame
-    // gap between the jump press and canLoadLevel/Update() timing (e.g. jumping momentarily
-    // lifts the player's collider out of the trigger zone before Update() gets to consume it).
-    private const float jumpBufferTime = 0.2f;
-    private float jumpBufferCounter;
-
-    private void OnEnable() => PlayerController.JumpPerformed += HandleJumpPerformed;
-    private void OnDisable() => PlayerController.JumpPerformed -= HandleJumpPerformed;
-    private void HandleJumpPerformed() => jumpBufferCounter = jumpBufferTime;
 
     // Start is called before the first frame update
     void Start()
@@ -58,31 +50,55 @@ public class LSLevelEntry : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (jumpBufferCounter > 0f) jumpBufferCounter -= Time.deltaTime;
-
-        if(canLoadLevel && levelUnlocked && jumpBufferCounter > 0f && !levelLoading)
+        if(canLoadLevel && !levelLoading && JumpPressed())
         {
             levelLoading = true;
-            jumpBufferCounter = 0f;
             StartCoroutine(LoadLevelCo());
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    // Detecta el salto con el sistema viejo y con el Input System:
+    // barra espaciadora, boton A de un control, y el boton de salto en pantalla
+    // (el OnScreenButton aparece como un control virtual "Button South").
+    private bool JumpPressed()
+    {
+        bool pressed = false;
+
+#if ENABLE_LEGACY_INPUT_MANAGER
+        if (Input.GetButtonDown("Jump")) pressed = true;
+#endif
+
+#if ENABLE_INPUT_SYSTEM
+        if (Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame) pressed = true;
+        if (Gamepad.current != null && Gamepad.current.buttonSouth.wasPressedThisFrame) pressed = true;
+#endif
+
+        return pressed;
+    }
+
+        private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
         {
             canLoadLevel = true;
 
-            LevelSelectController.instance.SetLevelInfoBoxActive(true);
-            LevelSelectController.instance.SetLevelText(displayName);
+            string message = levelUnlocked
+                ? "Press Jump To Enter"
+                : crystalsRequired.ToString() + " Crystals required to unlock";
 
-            if(levelUnlocked)
+            foreach (var box in LevelSelectController.instance.levelInfoBox)
             {
-                LevelSelectController.instance.SetActionText("Press Jump To Enter");
-            } else
+                if (box != null) box.SetActive(true);
+            }
+
+            foreach (var t in LevelSelectController.instance.levelText)
             {
-                LevelSelectController.instance.SetActionText(crystalsRequired.ToString() + " Crystals required to unlock");
+                if (t != null) t.text = displayName;
+            }
+
+            foreach (var t in LevelSelectController.instance.actionText)
+            {
+                if (t != null) t.text = message;
             }
         }
     }
@@ -93,7 +109,10 @@ public class LSLevelEntry : MonoBehaviour
         {
             canLoadLevel = false;
 
-            LevelSelectController.instance.SetLevelInfoBoxActive(false);
+            foreach (var box in LevelSelectController.instance.levelInfoBox)
+            {
+                if (box != null) box.SetActive(false);
+            }
         }
     }
 
@@ -111,6 +130,16 @@ public class LSLevelEntry : MonoBehaviour
         PendingLevel.description = previewDescription;
         PendingLevel.thumbnail = previewThumbnail;
 
-        SceneManager.LoadScene(coursePreviewScene);
+        // Si se te olvido llenar 'Course Preview Scene', carga el nivel directo
+        // en vez de dar el error de "Invalid scene name".
+        if (string.IsNullOrEmpty(coursePreviewScene))
+        {
+            SceneManager.LoadScene(levelName);
+            PlayerPrefs.SetString("CurrentLevel", levelName);
+        }
+        else
+        {
+            SceneManager.LoadScene(coursePreviewScene);
+        }
     }
 }

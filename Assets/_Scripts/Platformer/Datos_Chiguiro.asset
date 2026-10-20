@@ -14,5 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Chiguiro
   categoria: 0
-  description: blabalbalbalbalbalbalbalbalbalbba
-  photo: {fileID: 0}
+  description: "El capibara (o chig\xFCiro) es el roedor m\xE1s grande del mundo
+    y un mam\xEDfero semiacu\xE1tico nativo de Sudam\xE9rica\n\nSe caracteriza por
+    su cuerpo robusto en forma de barril sin cola, pelaje marr\xF3n, y patas ligeramente
+    palmeadas que lo hacen un excelente nadador."
+  photo: {fileID: 21300000, guid: 14089b94bb99c854da09b424177f8665, type: 3}
+  isDiscovered: 0
