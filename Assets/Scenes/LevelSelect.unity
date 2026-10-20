@@ -3352,76 +3352,6 @@ MonoBehaviour:
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
   m_ScrollDeltaPerTick: 6
---- !u!1001 &1482014245
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3239622804786123462, guid: 77324057d35484549b162bc58643aeef, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7483272633010489015, guid: 77324057d35484549b162bc58643aeef, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7483272633010489015, guid: 77324057d35484549b162bc58643aeef, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7483272633010489015, guid: 77324057d35484549b162bc58643aeef, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7483272633010489015, guid: 77324057d35484549b162bc58643aeef, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7483272633010489015, guid: 77324057d35484549b162bc58643aeef, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7483272633010489015, guid: 77324057d35484549b162bc58643aeef, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7483272633010489015, guid: 77324057d35484549b162bc58643aeef, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7483272633010489015, guid: 77324057d35484549b162bc58643aeef, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7483272633010489015, guid: 77324057d35484549b162bc58643aeef, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7483272633010489015, guid: 77324057d35484549b162bc58643aeef, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9011196820431460715, guid: 77324057d35484549b162bc58643aeef, type: 3}
-      propertyPath: m_ReferenceResolution.x
-      value: 1080
-      objectReference: {fileID: 0}
-    - target: {fileID: 9011196820431460715, guid: 77324057d35484549b162bc58643aeef, type: 3}
-      propertyPath: m_ReferenceResolution.y
-      value: 1920
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 77324057d35484549b162bc58643aeef, type: 3}
---- !u!1 &1482014246 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3239622804786123462, guid: 77324057d35484549b162bc58643aeef, type: 3}
-  m_PrefabInstance: {fileID: 1482014245}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1491640598
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3670,7 +3600,7 @@ PrefabInstance:
     - target: {fileID: 1148028367379553509, guid: c2e39d3822ab2bbedb0b75f78ae346e6, type: 3}
       propertyPath: androidOnly.Array.data[1]
       value: 
-      objectReference: {fileID: 1482014246}
+      objectReference: {fileID: 0}
     - target: {fileID: 4710204159991653889, guid: c2e39d3822ab2bbedb0b75f78ae346e6, type: 3}
       propertyPath: m_Name
       value: PCAndroidManager
@@ -4843,6 +4773,5 @@ SceneRoots:
   - {fileID: 1209011533}
   - {fileID: 1521125826}
   - {fileID: 1637925924}
-  - {fileID: 1482014245}
   - {fileID: 1806688950}
   - {fileID: 1524003429}
