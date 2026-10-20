@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d84d65c2b0172de4fa50a790e7aff314, type: 3}
+  m_Name: Datos_Pajaro
+  m_EditorClassIdentifier: 
+  displayName: "P\xE1jaro"
+  categoria: 0
+  description: "Es una intr\xE9pida ave playera migratoria que viaja desde el \xC1rtico
+    hasta los humedales del departamento de C\xF3rdoba, Colombia. \n\nEs una visitante
+    invernal clave que llena de vida las ci\xE9nagas y arrozales cordobeses.\n\nDorso
+    gris moteado de blanco, pico recto, fino y negro, vientre blanco"
+  photo: {fileID: 21300000, guid: cefd786d7a286934d9c6f99182df7707, type: 3}

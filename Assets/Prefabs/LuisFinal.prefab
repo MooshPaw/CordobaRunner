@@ -88,16 +88,13 @@ PrefabInstance:
       addedObject: {fileID: 7255086520769050969}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c4c1bf5621fc94d4c96ea41c868e2642, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4162529165088752353}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c4c1bf5621fc94d4c96ea41c868e2642, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 2420107096736146639}
-    - targetCorrespondingSourceObject: {fileID: 6992059409332254169, guid: c4c1bf5621fc94d4c96ea41c868e2642, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3665488974173511768}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c4c1bf5621fc94d4c96ea41c868e2642, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7554398136862771073}
+    - targetCorrespondingSourceObject: {fileID: 6992059409332254169, guid: c4c1bf5621fc94d4c96ea41c868e2642, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3665488974173511768}
   m_SourcePrefab: {fileID: 100100000, guid: c4c1bf5621fc94d4c96ea41c868e2642, type: 3}
 --- !u!1 &115265988990091147 stripped
 GameObject:
@@ -119,7 +116,11 @@ MonoBehaviour:
   moveSpeed: 5
   jumpForce: 8
   gravityScale: 2
+  jumpBufferTime: 0.15
+  coyoteTime: 0.15
   charCon: {fileID: 2420107096736146639}
+  groundCheckRadius: 0.2
+  groundCheckOffset: 0.05
   rotateSpeed: 10
   anim: {fileID: 6643510622971346763}
   jumpParticle: {fileID: 0}
@@ -142,22 +143,6 @@ MonoBehaviour:
   invincibilityLength: 1
   modelDisplay: []
   flashTime: 0.1
---- !u!114 &4162529165088752353
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 115265988990091147}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: deb07caf29a5f064d85370609125db1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxDistance: 8
-  viewAngle: 45
-  photoPromptIcon: {fileID: 0}
-  photoButton: Fire1
 --- !u!143 &2420107096736146639
 CharacterController:
   m_ObjectHideFlags: 0
@@ -194,8 +179,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: b86f96b5808491f48a7079dd5ff58a7b, type: 3}
   m_NotificationBehavior: 0
   m_UIInputModule: {fileID: 0}
@@ -210,7 +195,7 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme:
+  m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}

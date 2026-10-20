@@ -1,55 +1,26 @@
-using System.Collections.Generic;
 using UnityEngine;
 
-public enum AlbumCategory
-{
-    Naturaleza,
-    Territorio,
-    VidaRural,
-    Cultura,
-    Gastronomia
-}
-
-// Va en cada objeto del nivel que se pueda fotografiar. Nombre, descripcion e
-// imagen viven en el PhotoEntryData que le asignes.
 public class PhotoSubject : MonoBehaviour
 {
-    public PhotoEntryData entry;
+    [Header("Configuración")]
+    [Tooltip("Arrastra aquí el archivo de datos (PhotoEntryData) de este objeto")]
+    public PhotoEntryData entry; 
 
     [HideInInspector]
-    public bool photographed;
+    public bool isPhotographed = false;
 
-    // Lista de sujetos activos: evita FindObjectsOfType en cada frame (importante en celular).
-    public static readonly List<PhotoSubject> All = new List<PhotoSubject>();
-
-    private void OnEnable() { All.Add(this); }
-    private void OnDisable() { All.Remove(this); }
-
-    private void Start()
+    public void MarkAsPhotographed()
     {
-        if (entry == null)
+        if (!isPhotographed && entry != null)
         {
-            Debug.LogWarning("[PhotoSubject] " + name + " no tiene 'Entry' asignado.");
+            isPhotographed = true;
+            // Aquí está la corrección: ahora usa "displayName"
+            Debug.Log($"¡Foto tomada exitosamente a: {entry.displayName}!");
+            
         }
-
-        Refresh();
-    }
-
-    public void Refresh()
-    {
-        photographed = entry == null || AlbumManager.IsDiscovered(entry);
-    }
-
-    public void MarkPhotographed()
-    {
-        if (photographed) return;
-
-        if (AlbumManager.instance == null)
+        else if (entry == null)
         {
-            Debug.LogWarning("[PhotoSubject] No hay AlbumManager en la escena (falta el prefab PhotoSystem).");
-            return;
+            Debug.LogWarning("¡A este objeto le falta que le arrastres su archivo Entry en el Inspector!");
         }
-
-        AlbumManager.instance.RegisterPhoto(entry);
     }
 }

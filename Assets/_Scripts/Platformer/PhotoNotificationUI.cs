@@ -1,45 +1,45 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
+using TMPro; // Necesario para los textos modernos de Unity
 
-// Muestra la foto y su descripcion apenas se captura. Debe ir en un objeto que
-// siempre este activo (el Canvas), no en el panel que se apaga.
 public class PhotoNotificationUI : MonoBehaviour
 {
-    public GameObject notificationPanel;
-    public TMP_Text notificationText;   // titulo: "¡Foto capturada! Nombre"
+    [Header("Elementos Visuales")]
+    [Tooltip("El panel principal que contiene el fondo, la imagen y los textos")]
+    public GameObject cardPanel; 
     public Image photoImage;
-    public TMP_Text descriptionText;
-    public float displayTime = 4f;
+    public TextMeshProUGUI nameText;
+    public TextMeshProUGUI descriptionText;
 
-    public void ShowEntry(PhotoEntryData entry)
+    [Header("Configuración")]
+    public float showTime = 4f; // Segundos que dura la foto en pantalla
+
+    void Start()
     {
-        StopAllCoroutines();
-        StartCoroutine(ShowCo(entry));
+        // Apagamos la tarjeta al inicio del nivel para que no estorbe
+        if (cardPanel != null) cardPanel.SetActive(false);
     }
 
-    public void Hide()
+    // Esta función recibe los datos y los pone en la pantalla
+    public void ShowPhotoCard(PhotoEntryData data)
     {
-        StopAllCoroutines();
-        notificationPanel.SetActive(false);
+        if (data == null) return;
+
+        // 1. Asignar los datos a la interfaz
+        nameText.text = data.displayName;
+        descriptionText.text = data.description;
+        photoImage.sprite = data.photo;
+
+        // 2. Encender el panel
+        cardPanel.SetActive(true);
+
+        // 3. Programar que se apague solo después de unos segundos
+        CancelInvoke("HidePhotoCard");
+        Invoke("HidePhotoCard", showTime);
     }
 
-    private IEnumerator ShowCo(PhotoEntryData entry)
+    private void HidePhotoCard()
     {
-        if (notificationText != null) notificationText.text = "¡Foto capturada! " + entry.displayName;
-        if (descriptionText != null) descriptionText.text = entry.description;
-
-        if (photoImage != null)
-        {
-            photoImage.sprite = entry.photo;
-            photoImage.color = Color.white;
-        }
-
-        notificationPanel.SetActive(true);
-
-        yield return new WaitForSecondsRealtime(displayTime);
-
-        notificationPanel.SetActive(false);
+        cardPanel.SetActive(false);
     }
 }
