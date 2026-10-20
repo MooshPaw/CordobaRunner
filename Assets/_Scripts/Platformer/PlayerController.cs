@@ -42,6 +42,15 @@ public class PlayerController : MonoBehaviour
     public float bounceForce;
     [HideInInspector]
     public bool stopMoving;
+    private MovingPlatform currentPlatform;
+
+    // Respawn re-enables this object without a fresh input event, so a direction held at the
+    // moment of death would otherwise keep driving movement until the player presses again.
+    private void OnEnable()
+    {
+        moveInput = Vector2.zero;
+        jumpBufferCounter = 0f;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -59,10 +68,14 @@ public class PlayerController : MonoBehaviour
         Vector3 origin = bottom + Vector3.up * groundCheckOffset;
 
         int count = Physics.OverlapSphereNonAlloc(origin, groundCheckRadius, groundCheckHits, ~0, QueryTriggerInteraction.Ignore);
+        currentPlatform = null;
         for (int i = 0; i < count; i++)
         {
             if (groundCheckHits[i] != null && groundCheckHits[i] != charCon)
+            {
+                currentPlatform = groundCheckHits[i].GetComponentInParent<MovingPlatform>();
                 return true;
+            }
         }
 
         return false;
@@ -105,6 +118,10 @@ public class PlayerController : MonoBehaviour
 
             grounded = CheckGrounded();
 
+            // Snapshot before the jump check below can send the player off the platform this
+            // same frame - jumping should stop the ride immediately, not carry one extra frame.
+            MovingPlatform platformThisFrame = grounded ? currentPlatform : null;
+
             if (grounded)
             {
                 coyoteCounter = coyoteTime;
@@ -121,12 +138,15 @@ public class PlayerController : MonoBehaviour
                 coyoteCounter -= Time.deltaTime;
             }
 
+            bool jumped = false;
+
             if (jumpBufferCounter > 0f && coyoteCounter > 0f)
             {
                 moveAmount.y = jumpForce;
 
                 jumpBufferCounter = 0f;
                 coyoteCounter = 0f;
+                jumped = true;
 
                 if (jumpParticle != null) jumpParticle.SetActive(true);
 
@@ -137,8 +157,17 @@ public class PlayerController : MonoBehaviour
 
             lastGrounded = grounded;
 
-            charCon.Move(new Vector3(moveAmount.x * moveSpeed, moveAmount.y, moveAmount.z * moveSpeed) * Time.deltaTime);
+            // Horizontal and vertical motion go through separate Move() calls so a jump's upward
+            // velocity never shares a sweep with horizontal movement - bundled into one diagonal
+            // move, a small ledge/bump on a MeshCollider can catch that sweep and stop the player
+            // dead instead of letting CharacterController's step offset carry them over it.
+            charCon.Move(new Vector3(moveAmount.x * moveSpeed, 0f, moveAmount.z * moveSpeed) * Time.deltaTime);
+            charCon.Move(new Vector3(0f, moveAmount.y, 0f) * Time.deltaTime);
 
+            if (!jumped && platformThisFrame != null)
+            {
+                charCon.Move(platformThisFrame.DeltaMovement);
+            }
 
             float moveVel = new Vector3(moveAmount.x, 0f, moveAmount.z).magnitude * moveSpeed;
 

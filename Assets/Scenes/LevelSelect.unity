@@ -2590,6 +2590,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2420107096736146639, guid: a841f98f11ff81f419e83dde73cb8edf, type: 3}
+      propertyPath: m_Center.y
+      value: 0.56
+      objectReference: {fileID: 0}
     - target: {fileID: 4162529165088752353, guid: a841f98f11ff81f419e83dde73cb8edf, type: 3}
       propertyPath: photoAction
       value: 

@@ -837,7 +837,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9155885985900811009, guid: 9a52aa7ec9a140ec8621c99243f25a15, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1474,6 +1474,10 @@ PrefabInstance:
       propertyPath: PlayerObject
       value: 
       objectReference: {fileID: 3620945012690135780}
+    - target: {fileID: 908867288672105514, guid: b613921534691c3358ac2aa613ade121, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.64
+      objectReference: {fileID: 0}
     - target: {fileID: 1243125197650976038, guid: b613921534691c3358ac2aa613ade121, type: 3}
       propertyPath: m_Name
       value: Segment A

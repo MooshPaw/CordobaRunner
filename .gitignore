@@ -74,3 +74,5 @@ crashlytics-build.properties
 #Claude and unity Bridge Files
 /[Aa]ssets/LLM.meta
 /[Aa]ssets/LLM/*
+.idea/
+*.xml

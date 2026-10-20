@@ -1,15 +1,14 @@
 using UnityEngine;
 
 // Plataforma que viaja entre waypoints - un planchon en el rio, una carreta en
-// La Tierra. Carga al jugador por parenting mientras esta encima, que es la
-// forma mas simple de mover un CharacterController junto con algo que se mueve
-// sin pelear con el propio charCon.Move() de PlayerController.
+// La Tierra. PlayerController detecta esta plataforma con su propio chequeo de
+// suelo (CheckGrounded) y aplica DeltaMovement como un Move() extra mientras
+// esta parado encima, lo que deja de aplicarse en el instante en que salta o
+// se baja - no depende de un trigger ni de un collider adicional.
 //
-// Setup: ponlo en la raiz de la plataforma. La plataforma ya trae un collider
-// solido (para caminar encima); este script agrega un SEGUNDO collider trigger
-// pegado a la superficie de arriba para detectar cuando el jugador esta parado
-// encima. waypoints pueden ser Transforms vacios en la escena (no hijos de la
-// propia plataforma, o se moverian con ella).
+// Setup: ponlo en la raiz de la plataforma, o en cualquier padre del collider
+// solido con el que el jugador camina encima. waypoints pueden ser Transforms
+// vacios en la escena (no hijos de la propia plataforma, o se moverian con ella).
 public class MovingPlatform : MonoBehaviour
 {
     [Header("Camino")]
@@ -23,11 +22,12 @@ public class MovingPlatform : MonoBehaviour
     public float bobAmplitude = 0f;
     public float bobSpeed = 1f;
 
+    public Vector3 DeltaMovement { get; private set; }
+
     private int targetIndex;
     private int direction = 1;
     private float waitCounter;
     private Vector3 basePosition;
-    private Transform passenger;
 
     private void Start()
     {
@@ -59,10 +59,7 @@ public class MovingPlatform : MonoBehaviour
         basePosition = transform.position;
         ApplyBob();
 
-        if (passenger != null)
-        {
-            passenger.position += transform.position - positionBeforeThisFrame;
-        }
+        DeltaMovement = transform.position - positionBeforeThisFrame;
     }
 
     private void MoveTowardsTarget()
@@ -94,18 +91,5 @@ public class MovingPlatform : MonoBehaviour
     {
         if (bobAmplitude <= 0f) return;
         transform.position = basePosition + Vector3.up * (Mathf.Sin(Time.time * bobSpeed) * bobAmplitude);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (!other.CompareTag("Player")) return;
-        passenger = other.transform;
-        basePosition = transform.position;
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (!other.CompareTag("Player")) return;
-        if (passenger == other.transform) passenger = null;
     }
 }
