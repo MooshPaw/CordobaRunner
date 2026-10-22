@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d84d65c2b0172de4fa50a790e7aff314, type: 3}
+  m_Name: Burra
+  m_EditorClassIdentifier: 
+  displayName: Burrita
+  categoria: 0
+  description: "La estrella indiscutible del folclor! Esta simp\xE1tica burrita luce
+    un colorido y creativo traje para el famoso Festival del Burro. Por un d\xEDa,
+    estos nobles animales, compa\xF1eros incansables del campesino, dejan atr\xE1s
+    el trabajo para convertirse en el centro de atenci\xF3n con disfraces llenos
+    de humor e ingenio. \xA1Un encuentro inolvidable que te sacar\xE1 m\xE1s de una
+    sonrisa!"
+  photo: {fileID: 21300000, guid: c7e3e036177a41645898dafaa32fb186, type: 3}
+  isDiscovered: 0

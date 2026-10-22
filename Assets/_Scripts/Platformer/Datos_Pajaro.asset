@@ -19,4 +19,4 @@ MonoBehaviour:
     invernal clave que llena de vida las ci\xE9nagas y arrozales cordobeses.\n\nDorso
     gris moteado de blanco, pico recto, fino y negro, vientre blanco"
   photo: {fileID: 21300000, guid: cefd786d7a286934d9c6f99182df7707, type: 3}
-  isDiscovered: 1
+  isDiscovered: 0
