@@ -10,6 +10,8 @@ public class KillPlayer : MonoBehaviour
         {
             //other.gameObject.GetComponent<CharacterController>().Move(Vector3.up - other.transform.position);
 
+            Debug.Log($"[KillPlayer:{name}] Killzone hit. Calling Respawn() with current respawnPoint={LevelManager.instance.respawnPoint}");
+
             LevelManager.instance.Respawn();
         }
     }

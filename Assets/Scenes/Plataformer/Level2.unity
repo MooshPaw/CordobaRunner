@@ -1104,6 +1104,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 488.99286
       objectReference: {fileID: 0}
+    - target: {fileID: 3439725405237528807, guid: b2f4e0d705e9b9c46999a73f1e1d8382, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 782
+      objectReference: {fileID: 0}
+    - target: {fileID: 3439725405237528807, guid: b2f4e0d705e9b9c46999a73f1e1d8382, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 571
+      objectReference: {fileID: 0}
     - target: {fileID: 3919436680443696783, guid: b2f4e0d705e9b9c46999a73f1e1d8382, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -11347,6 +11355,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 796701097233995177, guid: 7321c0212641d414d9d96f2071b8b699, type: 3}
   m_PrefabInstance: {fileID: 1463238350}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &801642793
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6806988136004234258, guid: 22961c21db6c68389b65f9db61944df2, type: 3}
+      propertyPath: m_Name
+      value: ifAndroidHorizontal
+      objectReference: {fileID: 0}
+    - target: {fileID: 7301692815619144018, guid: 22961c21db6c68389b65f9db61944df2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7301692815619144018, guid: 22961c21db6c68389b65f9db61944df2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7301692815619144018, guid: 22961c21db6c68389b65f9db61944df2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7301692815619144018, guid: 22961c21db6c68389b65f9db61944df2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7301692815619144018, guid: 22961c21db6c68389b65f9db61944df2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7301692815619144018, guid: 22961c21db6c68389b65f9db61944df2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7301692815619144018, guid: 22961c21db6c68389b65f9db61944df2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7301692815619144018, guid: 22961c21db6c68389b65f9db61944df2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7301692815619144018, guid: 22961c21db6c68389b65f9db61944df2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7301692815619144018, guid: 22961c21db6c68389b65f9db61944df2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 22961c21db6c68389b65f9db61944df2, type: 3}
 --- !u!4 &802716131 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 902335148672046143, guid: 1d510a7aa5fbecf419b5fce8584e99dd, type: 3}
@@ -17114,6 +17179,21 @@ PrefabInstance:
       propertyPath: camPos
       value: 
       objectReference: {fileID: 2111149677}
+    - target: {fileID: 7720696347896650160, guid: 52074ed80e910b84ca2d9c0e0ec53cfa, type: 3}
+      propertyPath: displayName
+      value: El Ritmo
+      objectReference: {fileID: 0}
+    - target: {fileID: 7720696347896650160, guid: 52074ed80e910b84ca2d9c0e0ec53cfa, type: 3}
+      propertyPath: previewThumbnail
+      value: 
+      objectReference: {fileID: 21300000, guid: a33f755b95d023a48b1bf28f3b6f0899, type: 3}
+    - target: {fileID: 7720696347896650160, guid: 52074ed80e910b84ca2d9c0e0ec53cfa, type: 3}
+      propertyPath: previewDescription
+      value: "\"El coraz\xF3n del folclor y la tradici\xF3n! Un escenario vibrante
+        lleno de vida, m\xFAsica y cultura en su m\xE1xima expresi\xF3n. Es el reto
+        definitivo de tu viaje, donde cada esquina esconde una postal inolvidable
+        y una historia espectacular por descubrir\""
+      objectReference: {fileID: 0}
     - target: {fileID: 8918882238255180849, guid: 52074ed80e910b84ca2d9c0e0ec53cfa, type: 3}
       propertyPath: m_Name
       value: Final Variant
@@ -28342,6 +28422,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 434055606}
   - {fileID: 1430163477}
+  - {fileID: 801642793}
   - {fileID: 137834030}
   - {fileID: 1049854799}
   - {fileID: 538756296}
@@ -28357,6 +28438,6 @@ SceneRoots:
   - {fileID: 1271093692}
   - {fileID: 1155555840}
   - {fileID: 861616318}
-  - {fileID: 811610616}
   - {fileID: 69729422}
+  - {fileID: 811610616}
   - {fileID: 775241076}

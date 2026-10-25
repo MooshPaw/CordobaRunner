@@ -22,9 +22,20 @@ public class LevelSelectController : MonoBehaviour
     public GameObject[] levelInfoBox;
     public TMP_Text[] levelText, actionText;
 
+    [Tooltip("The player always spawns here when LevelSelect loads, regardless of which level they last entered from.")]
+    public Transform defaultSpawn;
+
     private void Start()
     {
         AudioManager.instance.PlayMusic(1);
+
+        if (defaultSpawn != null)
+        {
+            PlayerController player = FindObjectOfType<PlayerController>();
+            player.charCon.Move(defaultSpawn.position - player.transform.position);
+
+            FindObjectOfType<CameraController>().SnapToTarget();
+        }
     }
 
     public void SetLevelInfoBoxActive(bool active)

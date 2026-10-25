@@ -92,6 +92,8 @@ public class LevelManager : MonoBehaviour
 
     public IEnumerator RespawnCo()
     {
+        Debug.Log($"[LevelManager] RespawnCo starting. respawnPoint={respawnPoint} reloadOnRespawn={reloadOnRespawn}");
+
         player.gameObject.SetActive(false);
         UIController.instance.FadeToBlack();
 
@@ -106,7 +108,11 @@ public class LevelManager : MonoBehaviour
         else
         {
 
+            Debug.Log($"[LevelManager] Repositioning player to respawnPoint={respawnPoint}");
+
             player.transform.position = respawnPoint;
+
+            Debug.Log($"[LevelManager] Player position after set: {player.transform.position}");
 
             cam.SnapToTarget();
 
@@ -145,12 +151,10 @@ public class LevelManager : MonoBehaviour
         PlayerPrefs.SetInt("Crystals", currentCrystals);
     }
 
-    public void EndLevel(string nextLevel)
-    {
-        StartCoroutine(EndLevelCo(nextLevel));
-    }
-
-    IEnumerator EndLevelCo(string nextLevel)
+    // Only marks the level as complete and kicks the player's end-of-level animation.
+    // The fade-out and scene load are owned by LevelExit/FadeScreen instead, gated on
+    // the Fade Out animation's completion rather than a fixed timer.
+    public void EndLevel()
     {
         levelComplete = true;
 
@@ -158,14 +162,6 @@ public class LevelManager : MonoBehaviour
         {
             player.anim.SetTrigger("endLevel");
         }
-
-        yield return new WaitForSeconds(waitToEndLevel - 1f);
-
-        UIController.instance.FadeToBlack();
-
-        yield return new WaitForSeconds(1f);
-
-        SceneManager.LoadScene(nextLevel);
     }
 
     // Evita el error "Parameter 'x' does not exist" si el Animator todavia

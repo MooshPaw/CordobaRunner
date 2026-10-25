@@ -19,6 +19,8 @@ public class CoursePreviewController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log($"[CoursePreviewController] Start. PendingLevel.levelName='{PendingLevel.levelName}' displayName='{PendingLevel.displayName}'");
+
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
@@ -33,12 +35,16 @@ public class CoursePreviewController : MonoBehaviour
 
     public void ConfirmAndPlay()
     {
+        Debug.Log($"[CoursePreviewController] ConfirmAndPlay. PendingLevel.levelName='{PendingLevel.levelName}'");
+
         SceneManager.LoadScene(PendingLevel.levelName);
         PlayerPrefs.SetString("CurrentLevel", PendingLevel.levelName);
     }
 
     public void Back()
     {
+        Debug.Log($"[CoursePreviewController] Back. levelSelectScene='{levelSelectScene}'");
+
         SceneManager.LoadScene(levelSelectScene);
     }
 }
