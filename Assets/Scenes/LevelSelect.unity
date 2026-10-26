@@ -191,6 +191,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: fish02
       objectReference: {fileID: 0}
+    - target: {fileID: 1782613636222193414, guid: 3f485f6aede03704384f90d4e9b0bc38, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2476758950510071920, guid: 3f485f6aede03704384f90d4e9b0bc38, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.27521
@@ -2456,6 +2460,10 @@ PrefabInstance:
     - target: {fileID: 7128147756154486921, guid: 9e1de706cda1203428d4e173c49a7b2e, type: 3}
       propertyPath: m_Name
       value: Leave_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7128147756154486921, guid: 9e1de706cda1203428d4e173c49a7b2e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

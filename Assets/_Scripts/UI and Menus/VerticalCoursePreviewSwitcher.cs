@@ -15,6 +15,9 @@ public class VerticalCoursePreviewSwitcher : MonoBehaviour
     [Tooltip("Enabled only when ScreenOrientationController resolves to Vertical for the pending level")]
     public GameObject[] verticalOnly;
 
+    [Tooltip("Enabled only when NOT vertical - e.g. the horizontal counterpart of a verticalOnly object, so the two don't both stay active and overlap")]
+    public GameObject[] horizontalOnly;
+
     private void Awake() => Apply();
 
     public void Apply()
@@ -22,9 +25,18 @@ public class VerticalCoursePreviewSwitcher : MonoBehaviour
         ScreenOrientationController orientation = FindObjectOfType<ScreenOrientationController>();
         bool vertical = orientation != null && orientation.EffectiveOrientation == ScreenOrientationController.Orientation.Vertical;
 
+        Debug.Log($"[VerticalCoursePreviewSwitcher] PendingLevel.levelName='{PendingLevel.levelName}' " +
+            $"foundController={orientation != null} verticalForPendingLevel='{orientation?.verticalForPendingLevel}' " +
+            $"EffectiveOrientation={orientation?.EffectiveOrientation} -> vertical={vertical}");
+
         foreach (var go in verticalOnly)
         {
             if (go != null) go.SetActive(vertical);
+        }
+
+        foreach (var go in horizontalOnly)
+        {
+            if (go != null) go.SetActive(!vertical);
         }
     }
 }

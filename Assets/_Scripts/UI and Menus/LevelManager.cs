@@ -46,7 +46,17 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        // Unity doesn't recompute the skybox-driven ambient/reflection lighting when a new
+        // scene is loaded via script from an already-running session - it can keep using
+        // whatever skybox was active before, making the level look dull/muddy compared to
+        // opening this scene directly in the Editor and pressing Play. Forcing it here makes
+        // the lighting match regardless of how the player reached this level.
+        //
+        // Called twice: once immediately, and once after the first frame has actually
+        // rendered. Calling it only in Start() (before anything has rendered yet) can bake
+        // the probe from an incomplete render state and still come out duller than expected.
+        DynamicGI.UpdateEnvironment();
+        StartCoroutine(RefreshEnvironmentLightingNextFrame());
 
         player = FindObjectOfType<PlayerController>();
         respawnPoint = player.transform.position;
@@ -58,6 +68,12 @@ public class LevelManager : MonoBehaviour
 
         UIController.instance.SetCoinText(currentCoins.ToString());
         UIController.instance.SetCrystalText(currentCrystals.ToString());
+    }
+
+    private IEnumerator RefreshEnvironmentLightingNextFrame()
+    {
+        yield return new WaitForEndOfFrame();
+        DynamicGI.UpdateEnvironment();
     }
 
     // Update is called once per frame
