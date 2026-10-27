@@ -42,4 +42,12 @@ public class PhotoNotificationUI : MonoBehaviour
     {
         cardPanel.SetActive(false);
     }
+
+    // Wired to the card's close (X) button, so the player isn't forced to wait
+    // out the auto-close timer.
+    public void CloseCard()
+    {
+        CancelInvoke("HidePhotoCard");
+        HidePhotoCard();
+    }
 }

@@ -108,13 +108,9 @@ public class UIController : MonoBehaviour
 
         if(active)
         {
-            Cursor.lockState = CursorLockMode.None;
-
             Time.timeScale = 0f;
         } else
         {
-            Cursor.lockState = CursorLockMode.Locked;
-
             Time.timeScale = 1f;
         }
     }

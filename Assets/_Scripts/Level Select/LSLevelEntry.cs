@@ -35,16 +35,6 @@ public class LSLevelEntry : MonoBehaviour
 
         mapPointActive.SetActive(levelUnlocked);
         mapPointInactive.SetActive(!levelUnlocked);
-
-        if (PlayerPrefs.GetString("CurrentLevel") == levelName)
-        {
-            PlayerController player = FindObjectOfType<PlayerController>();
-            player.charCon.Move(transform.position - player.transform.position);
-
-            FindObjectOfType<CameraController>().SnapToTarget();
-
-            LevelManager.instance.respawnPoint = transform.position;
-        }
     }
 
     // Update is called once per frame

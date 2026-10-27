@@ -11,10 +11,15 @@ public class Checkpoint : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log($"[Checkpoint:{name}] OnTriggerEnter by '{other.name}' (tag: '{other.tag}')");
+
         if(other.tag == "Player")
         {
+            Debug.Log($"[Checkpoint:{name}] Player detected. respawnPoint={LevelManager.instance.respawnPoint} thisPos={transform.position}");
+
             if (LevelManager.instance.respawnPoint != transform.position)
             {
+                Debug.Log($"[Checkpoint:{name}] Activating - setting respawnPoint to {transform.position}");
 
                 LevelManager.instance.respawnPoint = transform.position;
 

@@ -18,7 +18,11 @@ public class CameraController : MonoBehaviour
     {
         AssignTarget();
 
-        Cursor.lockState = CursorLockMode.Locked;
+        // This used to be an FPS-style look camera that locked/hid the cursor for mouse-look.
+        // It's a fixed third-person follow cam now - nothing reads mouse input - but the player
+        // still needs the cursor to press on-screen buttons, so keep it visible and unlocked.
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     // Update is called once per frame
