@@ -909,6 +909,10 @@ PrefabInstance:
       propertyPath: notificationUI
       value: 
       objectReference: {fileID: 865922569}
+    - target: {fileID: 4729820049249751970, guid: a841f98f11ff81f419e83dde73cb8edf, type: 3}
+      propertyPath: bounceForce
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5368,7 +5372,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3239622804786123462, guid: 77324057d35484549b162bc58643aeef, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7483272633010489015, guid: 77324057d35484549b162bc58643aeef, type: 3}
       propertyPath: m_Pivot.x
