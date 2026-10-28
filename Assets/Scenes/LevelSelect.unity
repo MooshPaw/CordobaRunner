@@ -3267,7 +3267,7 @@ PrefabInstance:
       objectReference: {fileID: -888076084664920493, guid: b86f96b5808491f48a7079dd5ff58a7b, type: 3}
     - target: {fileID: 4729820049249751970, guid: a841f98f11ff81f419e83dde73cb8edf, type: 3}
       propertyPath: moveSpeed
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4729820049249751970, guid: a841f98f11ff81f419e83dde73cb8edf, type: 3}
       propertyPath: jumpAction
