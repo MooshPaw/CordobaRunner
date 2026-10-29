@@ -181292,6 +181292,42 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2620072652836938635, guid: b2f4e0d705e9b9c46999a73f1e1d8382, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.0605165
+      objectReference: {fileID: 0}
+    - target: {fileID: 2620072652836938635, guid: b2f4e0d705e9b9c46999a73f1e1d8382, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.0605165
+      objectReference: {fileID: 0}
+    - target: {fileID: 2620072652836938635, guid: b2f4e0d705e9b9c46999a73f1e1d8382, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.0605165
+      objectReference: {fileID: 0}
+    - target: {fileID: 2620072652836938635, guid: b2f4e0d705e9b9c46999a73f1e1d8382, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3338532232708951550, guid: b2f4e0d705e9b9c46999a73f1e1d8382, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3338532232708951550, guid: b2f4e0d705e9b9c46999a73f1e1d8382, type: 3}
+      propertyPath: m_Color.a
+      value: 0.23529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 3338532232708951550, guid: b2f4e0d705e9b9c46999a73f1e1d8382, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3338532232708951550, guid: b2f4e0d705e9b9c46999a73f1e1d8382, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3338532232708951550, guid: b2f4e0d705e9b9c46999a73f1e1d8382, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3439725405237528807, guid: b2f4e0d705e9b9c46999a73f1e1d8382, type: 3}
       propertyPath: m_LocalPosition.z
       value: 959
@@ -181313,6 +181349,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4179739425628773867, guid: b2f4e0d705e9b9c46999a73f1e1d8382, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5609206483880965385, guid: b2f4e0d705e9b9c46999a73f1e1d8382, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}

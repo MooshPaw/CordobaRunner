@@ -20,4 +20,4 @@ MonoBehaviour:
     plato refrescante y nutritivo, ideal para recuperar fuerzas en los d\xEDas m\xE1s
     calurosos de tu aventura!"
   photo: {fileID: 21300000, guid: 8a5c3490d9e3cee49bbf2271e5da64e3, type: 3}
-  isDiscovered: 1
+  isDiscovered: 0

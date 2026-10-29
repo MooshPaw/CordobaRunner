@@ -20,4 +20,4 @@ MonoBehaviour:
     con patacones, lim\xF3n y buen apetito. \xA1Un manjar perfecto para recargar
     la energ\xEDa de cualquier explorador!"
   photo: {fileID: 21300000, guid: e74fb03f095cfc34ba540458511dde40, type: 3}
-  isDiscovered: 1
+  isDiscovered: 0
